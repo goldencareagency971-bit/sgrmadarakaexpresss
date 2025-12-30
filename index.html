@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SGR Madaraka Express | Kenya</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f2f2f2;
+            color: #222;
+        }
+
+        /* ================= HEADER (TRANSLUCENT) ================= */
+        header {
+            background: rgba(177, 18, 38, 0.85);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            color: white;
+            padding: 18px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 18px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 50px 20px;
+        }
+
+        /* ================= HERO WITH BLURRED IMAGE ================= */
+        .hero {
+            position: relative;
+            color: white;
+            text-align: center;
+            padding: 130px 20px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: 
+                linear-gradient(
+                    rgba(0,0,0,0.55),
+                    rgba(177,18,38,0.75)
+                ),
+                url("sgr6.jfif");
+            background-size: cover;
+            background-position: center;
+            filter: blur(4px);
+            transform: scale(1.05);
+            z-index: -1;
+        }
+
+        .hero h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .btn {
+            background: white;
+            color: #b11226;
+            padding: 14px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 4px;
+            display: inline-block;
+            margin-top: 30px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            color: #b11226;
+            text-align: center;
+        }
+
+        /* ================= ABOUT ================= */
+        .about p {
+            max-width: 900px;
+            margin: auto;
+            line-height: 1.8;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        /* ================= GALLERY ================= */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card p {
+            padding: 15px;
+            font-size: 14px;
+        }
+
+        /* ================= BOOKING ================= */
+        form {
+            max-width: 520px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        form label {
+            margin-top: 15px;
+            font-weight: bold;
+            display: block;
+        }
+
+        form input,
+        form select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+        }
+
+        form button {
+            width: 100%;
+            background: #b11226;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 25px;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: #111;
+            color: #eee;
+            padding: 30px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-content div {
+            margin: 10px;
+        }
+
+        .footer-content strong {
+            color: #b11226;
+        }
+
+        .footer-content a {
+            color: #25D366;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>SGR MADARAKA EXPRESS</h1>
+    <nav>
+        <a onclick="scrollToSection('home')">Home</a>
+        <a onclick="scrollToSection('about')">About</a>
+        <a onclick="scrollToSection('booking')">Book Ticket</a>
+    </nav>
+</header>
+
+<section id="home" class="hero">
+    <h2>Kenya’s Modern Railway Service</h2>
+    <p>Fast, safe and reliable rail transport connecting major towns across Kenya.</p>
+    <a class="btn" onclick="scrollToSection('booking')">Book Your Ticket</a>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="about">
+    <div class="container">
+        <h2>About SGR Madaraka Express</h2>
+        <p>
+            The SGR Madaraka Express is Kenya’s flagship railway service,
+            offering affordable, efficient and modern passenger transport.
+        </p>
+    </div>
+</section>
+
+<!-- BOOKING SECTION MOVED HERE -->
+<section id="booking" class="booking">
+    <div class="container">
+        <h2>Book Your Ticket</h2>
+
+        <form id="bookingForm">
+            <label>Full Name</label>
+            <input type="text" id="name" required>
+
+            <label>Travel Route</label>
+            <select id="route" required>
+                <option>Nairobi – Mombasa</option>
+                <option>Mombasa – Nairobi</option>
+                <option>Nairobi – Kisumu</option>
+                <option>Mombasa – Voi</option>
+                <option>Nairobi – Kibwezi</option>
+                <option>Mombasa – Kibwezi</option>
+                <option>Nairobi – Voi</option>
+            </select>
+
+            <label>Travel Date</label>
+            <input type="date" id="date" required>
+
+            <label>Class</label>
+            <select id="class" required>
+                <option>Economy</option>
+                <option>First Class</option>
+            </select>
+
+            <button type="submit">Submit Booking</button>
+        </form>
+    </div>
+</section>
+
+<section class="gallery">
+    <div class="container">
+        <h2>Our Rail Experience</h2>
+        <div class="grid">
+            <div class="card"><img src="sgr1.jfif"><p>State-of-the-art passenger trains.</p></div>
+            <div class="card"><img src="sgr2.jfif"><p>Modern stations.</p></div>
+            <div class="card"><img src="sgr3.jfif"><p>Onboard catering services.</p></div>
+            <div class="card"><img src="sgr4.jfif"><p>Fast Nairobi–Mombasa connection.</p></div>
+            <div class="card"><img src="sgr5.jfif"><p>Safe and secure travel.</p></div>
+            <div class="card"><img src="sgr6.jfif"><p>Professional crew.</p></div>
+            <div class="card"><img src="sgr7.jfif"><p>Modern stations.</p></div>
+            <div class="card"><img src="sgr8.jfif"><p>Reliable schedules.</p></div>
+            <div class="card"><img src="sgr9.jfif"><p>Clean coaches.</p></div>
+            <div class="card"><img src="sgr10.jfif"><p>Nationwide connectivity.</p></div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div>
+            <strong>SGR Madaraka Express</strong><br>
+            Kenya Railways Corporation
+        </div>
+
+        <div>
+            📞 <strong>Call us now:</strong><br>
+            <a href="https://wa.me/254736665592">0736 665 592</a>
+        </div>
+
+        <div>
+            &copy; 2025 All Rights Reserved
+        </div>
+    </div>
+</footer>
+
+<script>
+    function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    }
+
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value;
+        const route = document.getElementById("route").value;
+        const date = document.getElementById("date").value;
+        const travelClass = document.getElementById("class").value;
+
+        const message =
+            `SGR MADARAKA EXPRESS BOOKING%0A%0A` +
+            `Full Name: ${name}%0A` +
+            `Route: ${route}%0A` +
+            `Travel Date: ${date}%0A` +
+            `Class: ${travelClass}`;
+
+        const phone = "254736665592";
+        window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
+    });
+</script>
+
+</body>
+</html>
