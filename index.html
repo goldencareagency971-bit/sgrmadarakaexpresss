@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>SGR Madaraka Express | Kenya</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="icon" href="/favicon.svg">
+<meta charset="UTF-8">
+<title>SGR Madaraka Express | Kenya</title>
+
 <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 
+<style>
 
-
-    <style>
 /* ================= GLOBAL ================= */
 * {
     box-sizing: border-box;
@@ -266,13 +263,105 @@ footer {
     font-size: 18px;
     vertical-align: middle;
 }
+    /* ================= MOBILE IMPROVEMENTS ================= */
+@media (max-width: 768px) {
+
+    body {
+        font-size: 16px;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    /* Header */
+    header {
+        padding: 10px 14px;
+    }
+
+    .branding .tagline {
+        font-size: 16px;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 90px 14px;
+    }
+
+    .hero h2 {
+        font-size: 26px;
+        line-height: 1.3;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    /* Booking Tabs */
+    .booking-tabs {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .tab-btn {
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    /* Forms */
+    form {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 14px;
+    }
+
+    form label {
+        font-size: 14px;
+    }
+
+    form input,
+    form select {
+        font-size: 16px; /* prevents iOS zoom */
+        padding: 12px;
+    }
+
+    form button {
+        font-size: 16px;
+        padding: 14px;
+    }
+
+    /* Gallery */
+    .card img {
+        height: 180px;
+    }
+
+    /* Footer */
+    footer {
+        font-size: 15px;
+    }
+}
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 480px) {
+
+    .hero h2 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .card img {
+        height: 160px;
+    }
+}
 
 </style>
-
 </head>
 
 <body>
-
 <header id="mainHeader">
     <div class="branding">
         <p class="tagline">Kenya Railways — Right on Track</p>
@@ -294,132 +383,114 @@ footer {
         </p>
     </div>
 </section>
+<section id="booking">
+<div class="container">
 
-<section id="booking" class="booking">
-  <div class="container">
-
-    <!-- Tabs -->
-    <div class="booking-tabs">
-        <button class="tab-btn active" onclick="showForm(event,'madaraka')">
-            <i class='bx bx-train'></i> Madaraka Express
-        </button>
-
-        <button class="tab-btn" onclick="showForm(event,'premium')">
-            <i class='bx bx-crown'></i> Book Premium
-        </button>
-    </div>
-
-    <!-- Madaraka Form -->
-    <div id="madaraka" class="booking-form active">
-        <form id="bookingForm">
-            <label>Full Name</label>
-            <input type="text" required>
-
-            <label>Travel Route</label>
-            <select required>
-                <option selected disabled>Select route...</option>
-                <option>Nairobi Terminus – Mombasa Terminus</option>
-                <option>Mombasa Terminus – Nairobi Terminus</option>
-                <option>Nairobi Terminus – Kisumu</option>
-                <option>Nairobi Terminus – Voi</option>
-                <option>Nairobi Terminus – Kibwezi</option>
-                <option>Mombasa Terminus – Voi</option>
-                <option>Mombasa Terminus – Mariakani</option>
-            </select>
-
-            <label>Travel Date</label>
-            <input type="date" required>
-
-            <label>Class</label>
-            <select required>
-                <option>Economy</option>
-                <option>First Class</option>
-            </select>
-
-            <button type="submit">Submit Booking</button>
-        </form>
-    </div>
-
-    <!-- Premium Form -->
-    <div id="premium" class="booking-form">
-        <h3>Madaraka Express – Online Booking</h3>
-
-        <form>
-            <label>Full Name</label>
-            <input type="text" required>
-
-            <!-- Trip Type -->
-            <div class="trip-type" style="margin: 10px 0 15px;">
-                <label>
-                    <input type="radio" name="trip" checked onclick="toggleReturn(false)"> One way
-                </label>
-                <label style="margin-left: 15px;">
-                    <input type="radio" name="trip" onclick="toggleReturn(true)"> Return trip
-                </label>
-            </div>
-
-            <!-- Train Type -->
-            <label>Train Type</label>
-            <select required>
-                <option selected disabled>Select...</option>
-                <option>Madaraka Express</option>
-                <option>Premium Class</option>
-            </select>
-
-            <!-- FROM -->
-            <label>From</label>
-            <select required>
-                <option selected disabled>Select departure station...</option>
-                <option>Nairobi Terminus</option>
-                <option>Mombasa Terminus</option>
-                <option>Voi</option>
-                <option>Kisumu</option>
-                <option>Emali</option>
-                <option>Mtito Andei</option>
-                <option>Kibwezi</option>
-                <option>Athi River</option>
-                <option>Mariakani</option>
-            </select>
-
-            <!-- TO -->
-            <label>To</label>
-            <select required>
-                <option selected disabled>Select destination station...</option>
-                <option>Nairobi Terminus</option>
-                <option>Mombasa Terminus</option>
-                <option>Voi</option>
-                <option>Mtito Andei</option>
-                <option>Kisumu</option>
-                <option>Emali</option>
-                <option>Kibwezi</option>
-                <option>Mariakani</option>
-                <option>Suswa</option>
-            </select>
-
-            <label>Departure Date</label>
-            <input type="date" required>
-
-            <!-- Return Fields -->
-            <div id="returnFields" style="display: none;">
-                <hr>
-
-                <label>Return Train Type</label>
-                <select required>
-                    <option selected disabled>Select...</option>
-                    <option>Madaraka Express</option>
-                    <option>Premium Class</option>
-                </select>
-
-                <label>Return Date</label>
-                <input type="date" required>
-            </div>
-
-            <button type="submit">Book a Train</button>
-        </form>
-    </div>
-
+<div class="booking-tabs">
+    <button class="tab-btn active" onclick="showForm(event,'madaraka')">
+        <i class='bx bx-train'></i> Madaraka Express
+    </button>
+    <button class="tab-btn" onclick="showForm(event,'premium')">
+        <i class='bx bx-crown'></i> Book Premium
+    </button>
 </div>
 
+<!-- MADARAKA FORM -->
+<div id="madaraka" class="booking-form active">
+<form id="bookingForm">
+
+<label>Full Name</label>
+<input type="text" required>
+
+<label>From</label>
+<select required>
+    <option disabled selected>Select departure station...</option>
+    <option>Nairobi Terminus</option>
+    <option>Mombasa Terminus</option>
+    <option>Voi</option>
+    <option>Kisumu</option>
+    <option>Emali</option>
+    <option>Mtito Andei</option>
+    <option>Kibwezi</option>
+    <option>Athi River</option>
+    <option>Mariakani</option>
+</select>
+
+<label>To</label>
+<select required>
+    <option disabled selected>Select destination station...</option>
+    <option>Nairobi Terminus</option>
+    <option>Mombasa Terminus</option>
+    <option>Voi</option>
+    <option>Kisumu</option>
+    <option>Emali</option>
+    <option>Kibwezi</option>
+    <option>Mariakani</option>
+    <option>Suswa</option>
+</select>
+
+<label>Travel Date</label>
+<input type="date" required>
+
+<label>Class</label>
+<select required>
+    <option>Economy</option>
+    <option>First Class</option>
+</select>
+
+<button type="submit">Submit Booking</button>
+</form>
+</div>
+
+<!-- PREMIUM FORM (REQUIRED FOR TAB TO WORK) -->
+<div id="premium" class="booking-form">
+    <form>
+        <label>Full Name</label>
+        <input type="text" required>
+
+        <label>Train Type</label>
+        <select required>
+            <option>Madaraka Express</option>
+            <option>Premium Class</option>
+        </select>
+
+      
+<label>From</label>
+<select required>
+    <option disabled selected>Select departure station...</option>
+    <option>Nairobi Terminus</option>
+    <option>Mombasa Terminus</option>
+    <option>Voi</option>
+    <option>Kisumu</option>
+    <option>Emali</option>
+    <option>Mtito Andei</option>
+    <option>Kibwezi</option>
+    <option>Athi River</option>
+    <option>Mariakani</option>
+</select>
+
+<label>To</label>
+<select required>
+    <option disabled selected>Select destination station...</option>
+    <option>Nairobi Terminus</option>
+    <option>Mombasa Terminus</option>
+    <option>Voi</option>
+    <option>Kisumu</option>
+    <option>Emali</option>
+    <option>Kibwezi</option>
+    <option>Mariakani</option>
+    <option>Suswa</option>
+</select>
+
+        <label>Departure Date</label>
+        <input type="date" required>
+
+        <button type="submit">Book Premium</button>
+    </form>
+</div>
+
+
+</div>
 </section>
 
 <section class="gallery">
@@ -428,63 +499,105 @@ footer {
 
         <div class="grid">
             <div class="card">
-                <img src="001.jfif" alt="Modern SGR Train">
-                <p>State-of-the-art passenger trains.</p>
-            </div>
+    <img src="011.jfif" alt="Premium Experience">
+    <p>Premium travel experience.</p>
+</div>
 
-            <div class="card">
-                <img src="002.jfif" alt="SGR Station">
-                <p>Modern railway stations.</p>
-            </div>
+<div class="card">
+    <img src="012.jfif" alt="Luxury Seating">
+    <p>Spacious and comfortable seating.</p>
+</div>
 
-            <div class="card">
-                <img src="003.jfif" alt="Onboard Services">
-                <p>Comfortable onboard services.</p>
-            </div>
+<div class="card">
+    <img src="013.jfif" alt="Dining Coach">
+    <p>Onboard dining services.</p>
+</div>
 
-            <div class="card">
-                <img src="004.jfif" alt="Nairobi to Mombasa">
-                <p>Fast Nairobi–Mombasa connection.</p>
-            </div>
+<div class="card">
+    <img src="014.jfif" alt="Train Interior">
+    <p>Modern train interiors.</p>
+</div>
 
-            <div class="card">
-                <img src="005.jfif" alt="Safe Travel">
-                <p>Safe and secure travel.</p>
-            </div>
+<div class="card">
+    <img src="015.jfif" alt="Scenic Views">
+    <p>Beautiful scenic views along the route.</p>
+</div>
 
-            <div class="card">
-                <img src="006.jfif" alt="SGR Crew">
-                <p>Professional and friendly crew.</p>
-            </div>
+<div class="card">
+    <img src="016.jfif" alt="Night Travel">
+    <p>Safe and smooth night travel.</p>
+</div>
 
-            <div class="card">
-                <img src="007.jfif" alt="Station Interior">
-                <p>Well-designed station interiors.</p>
-            </div>
+<div class="card">
+    <img src="017.jfif" alt="Platform View">
+    <p>Well-organized boarding platforms.</p>
+</div>
 
-            <div class="card">
-                <img src="008.jfif" alt="On-Time Service">
-                <p>Reliable and punctual schedules.</p>
-            </div>
+<div class="card">
+    <img src="018.jfif" alt="Passenger Comfort">
+    <p>Designed for passenger comfort.</p>
+</div>
 
-            <div class="card">
-                <img src="009.jfif" alt="Clean Coaches">
-                <p>Clean and spacious coaches.</p>
-            </div>
+<div class="card">
+    <img src="019.jfif" alt="Clean Facilities">
+    <p>Clean and well-maintained facilities.</p>
+</div>
 
-            <div class="card">
-                <img src="010.jfif" alt="Rail Connectivity">
-                <p>Nationwide rail connectivity.</p>
-            </div>
+<div class="card">
+    <img src="020.jfif" alt="Customer Service">
+    <p>Excellent customer service.</p>
+</div>
 
-            <!-- OPTIONAL EXTRA IMAGE -->
-            <!--
-            <div class="card">
-                <img src="011.jfif" alt="Premium Experience">
-                <p>Premium travel experience.</p>
-            </div>
-            -->
-        </div>
+<div class="card">
+    <img src="021.jfif" alt="Station Exterior">
+    <p>Impressive station architecture.</p>
+</div>
+
+<div class="card">
+    <img src="022.jfif" alt="Train Arrival">
+    <p>On-time train arrivals.</p>
+</div>
+
+<div class="card">
+    <img src="023.jfif" alt="Travel Comfort">
+    <p>Comfortable long-distance travel.</p>
+</div>
+
+<div class="card">
+    <img src="024.jfif" alt="Rail Infrastructure">
+    <p>World-class rail infrastructure.</p>
+</div>
+
+<div class="card">
+    <img src="025.jfif" alt="Coach Interior">
+    <p>Spacious coach interiors.</p>
+</div>
+
+<div class="card">
+    <img src="026.jfif" alt="Station Lounge">
+    <p>Relaxing passenger lounges.</p>
+</div>
+
+<div class="card">
+    <img src="027.jfif" alt="Smooth Ride">
+    <p>Smooth and stable rail rides.</p>
+</div>
+
+<div class="card">
+    <img src="028.jfif" alt="Train Exterior">
+    <p>Modern train exterior design.</p>
+</div>
+
+<div class="card">
+    <img src="029.jfif" alt="Passenger Boarding">
+    <p>Efficient passenger boarding.</p>
+</div>
+
+<div class="card">
+    <img src="030.jfif" alt="Nationwide Service">
+    <p>Connecting Kenya nationwide.</p>
+</div>
+
     </div>
 </section>
 
@@ -506,52 +619,37 @@ footer {
         </div>
     </div>
 </footer>
-
 <script>
-    // Smooth scroll
-    function scrollToSection(id) {
-        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
-    }
+// Tabs
+function showForm(event,id){
+    document.querySelectorAll(".booking-form").forEach(f=>f.classList.remove("active"));
+    document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+    event.currentTarget.classList.add("active");
+}
 
-    // Madaraka form WA submission
-    document.getElementById("bookingForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-        const name = document.getElementById("name").value;
-        const route = document.getElementById("route").value;
-        const date = document.getElementById("date").value;
-        const travelClass = document.getElementById("class").value;
+// WHATSAPP SUBMISSION (NO HTML CHANGES)
+document.getElementById("bookingForm").addEventListener("submit",function(e){
+    e.preventDefault();
 
-        const message = `SGR MADARAKA EXPRESS BOOKING%0A%0AFull Name: ${name}%0ARoute: ${route}%0ATravel Date: ${date}%0AClass: ${travelClass}`;
-        const phone = "254736665592";
-        window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
-    });
+    const fields = this.querySelectorAll("input, select");
 
-    // Booking tabs
-    function showForm(event, formId) {
-        document.querySelectorAll('.booking-form').forEach(f => f.classList.remove('active'));
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    const message =
+`SGR MADARAKA EXPRESS BOOKING 🚆
 
-        document.getElementById(formId).classList.add('active');
-        event.currentTarget.classList.add('active');
-    }
+Full Name: ${fields[0].value}
+From: ${fields[1].value}
+To: ${fields[2].value}
+Travel Date: ${fields[3].value}
+Class: ${fields[4].value}`;
 
-    // Toggle return fields in Premium
-    function toggleReturn(show) {
-        document.getElementById("returnFields").style.display = show ? "block" : "none";
-    }
-
-    // Fixed header on scroll
-    window.addEventListener('scroll', function() {
-        const header = document.getElementById('mainHeader');
-        if(window.scrollY > 50) {
-            header.classList.add('fixed');
-        } else {
-            header.classList.remove('fixed');
-        }
-    });
+    window.open(
+        "https://wa.me/254736665592?text=" + encodeURIComponent(message),
+        "_blank"
+    );
+});
 </script>
 
 </body>
 </html>
-
 
